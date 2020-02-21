@@ -19,7 +19,7 @@
             </Lightning:LayoutItem>
 
             <Lightning:LayoutItem flexibility="auto"  padding="around-large" size="6">
-                <p>You Searched for this item {!v.searchTerm}</p>
+                <p>You Searched for this item: {!v.searchTerm}</p>
             </Lightning:LayoutItem>
 
         </Lightning:layout>
