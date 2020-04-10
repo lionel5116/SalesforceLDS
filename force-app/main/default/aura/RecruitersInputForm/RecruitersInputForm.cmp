@@ -11,7 +11,7 @@
                 onload="{!c.handleOnLoad}">
             
                 <Lightning:messages />
-                <Lightning:inputField fieldName="Name" />
+                <Lightning:inputField aura:id="recruiterName" fieldName="Name" value="{!v.recruiterName}" />
                 <Lightning:inputField fieldName="Firm_Name__c" />
                 <Lightning:inputField fieldName="Phone_Number__c" />
                 <Lightning:inputField fieldName="Cell_Phone__c" />

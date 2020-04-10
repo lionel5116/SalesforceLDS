@@ -30,8 +30,9 @@ handleOnLoad: function(component, event, helper) {
 },
 
 clearForm: function(component, event, helper) {
-  component.set("v.recruiterName","The recruter is baddassss");
+  component.set("v.recruiterName","The recruter is baddassss .. helll000000");
   console.log("The value of recruiter name is: " + component.get("v.recruiterName"));
+  component.set("v.recruiterName","Hello World");
 },
 
 })
