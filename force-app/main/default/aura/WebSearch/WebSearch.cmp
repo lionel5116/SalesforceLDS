@@ -2,26 +2,24 @@
   <aura:attribute name="searchTerm" type="String" />
    <div class="c-container">
         <Lightning:layout multipleRows="true" horizontalAlign="center" verticalAlign="center">
-        
             <Lightning:LayoutItem flexibility="auto" size="6">
                     <div class="slds-form-element">
-                    <label class="slds-form-element__label" for="text-input-id-1">
-                        Enter Search Term To Analyze
-                    </label>
-                    <div class="slds-form-element__control">
-                        <input type="search" id="text-input-id-1" class="slds-input" placeholder="Enter Search Term" aura:id="searchBox" />
-                    </div>
+                        <label class="slds-form-element__label" for="text-input-id-1">
+                            Enter Search Term To Analyze
+                        </label>
+                        <div class="slds-form-element__control">
+                            <input type="search" id="text-input-id-1" class="slds-input" placeholder="Enter Search Term" aura:id="searchBox" />
+                        </div>
                     </div>
             </Lightning:LayoutItem>
 
             <Lightning:LayoutItem flexibility="auto" size="4" padding="horizontal-small">
-            <Lightning:button variant="brand" label="Search" title="" onclick="{! c.handleClick}" class="c-btn" />
+                <Lightning:button variant="brand" label="Search" title="" onclick="{! c.handleClick}" class="c-btn" />
             </Lightning:LayoutItem>
 
             <Lightning:LayoutItem flexibility="auto"  padding="around-large" size="6">
                 <p>You Searched for this item: {!v.searchTerm}</p>
             </Lightning:LayoutItem>
-
         </Lightning:layout>
   </div>
 </aura:component>    	

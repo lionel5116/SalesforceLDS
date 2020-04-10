@@ -1,0 +1,29 @@
+<aura:component implements="force:hasRecordId,flexipage:availableForAllPageTypes" access="global">
+
+    <aura:attribute name="recruiterName" type="String" />
+    <Lightning:layout verticalAlign="start" multipleRows="true">
+        <Lightning:layoutItem flexibility="auto" padding="around-small">
+            <Lightning:recordEditForm 
+                aura:id="recordEditForm" 
+                objectApiName="Recruiters__c"
+                onsuccess="{!c.handleSuccess}"
+                onsubmit="{!c.handleSubmit}"
+                onload="{!c.handleOnLoad}">
+            
+                <Lightning:messages />
+                <Lightning:inputField fieldName="Name" />
+                <Lightning:inputField fieldName="Firm_Name__c" />
+                <Lightning:inputField fieldName="Phone_Number__c" />
+                <Lightning:inputField fieldName="Cell_Phone__c" />
+                <Lightning:inputField fieldName="Address__c" />
+                <Lightning:inputField fieldName="Email_Address__c" />
+                <Lightning:inputField fieldName="Notes__c" />
+                <Lightning:button variant="brand" class="btn" type="submit" label="Create new Recuiter"/>
+                <Lightning:button variant="brand" label="Clear" title="" onclick="{!c.clearForm}" class="c-btn" />
+            </Lightning:recordEditForm>
+        </Lightning:layoutItem>
+    </Lightning:layout>
+
+</aura:component>
+ 
+
