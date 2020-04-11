@@ -1,0 +1,40 @@
+<apex:page standardController="Recruiters__c">
+  <apex:form>
+      <apex:pageBlock title="Edit Recruiter(s)">
+        <apex:pageMessages/>
+
+          <apex:pageBlockSection columns="1">
+              <apex:inputField value="{!Recruiters__c.Name }"/>
+              <apex:inputField value="{!Recruiters__c.Firm_Name__c }"/>
+              <apex:inputField value="{!Recruiters__c.Phone_Number__c }"/>
+              <apex:inputField value="{!Recruiters__c.Cell_Phone__c }"/>
+              <apex:inputField value="{!Recruiters__c.Address__c }"/>
+              <apex:inputField value="{!Recruiters__c.Email_Address__c }"/>
+              <apex:inputField value="{!Recruiters__c.Notes__c }"/>
+          </apex:pageBlockSection>
+          <apex:pageBlockButtons>
+            <apex:commandButton action="{!save}" value="Save" />        
+        </apex:pageBlockButtons>
+      </apex:pageBlock>
+
+      <apex:pageBlock title="Recruiters List">
+        <apex:pageBlockTable value="{!Recruiters__c}" var = "recruiter">
+         <apex:column>
+            <apex:outputLink value="{!URLFOR($Action.Recruiters__c.Edit, recruiter.Id)}" 
+              target="_blank" rendered="{!NOT(ISBLANK(recruiter.Id))}">Edit</apex:outputLink>
+            &nbsp;
+            <apex:outputLink value="{!URLFOR($Action.Recruiters__c.Delete, recruiter.Id)}" 
+             target="_blank" rendered="{!NOT(ISBLANK(recruiter.Id))}">Delete</apex:outputLink>
+         </apex:column>
+         <apex:column value="{!Recruiters__c.Name }"/>
+         <apex:column value="{!Recruiters__c.Firm_Name__c}"/>
+         <apex:column value="{!Recruiters__c.Phone_Number__c}"/>
+         <apex:column value="{!Recruiters__c.Email_Address__c}"/>
+        </apex:pageBlockTable>
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>
+
+
+
+
