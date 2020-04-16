@@ -1,0 +1,50 @@
+<aura:component implements="force:hasRecordId,flexipage:availableForAllPageTypes" access="global">
+   
+   <!--https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/ref_attr_types_basic.htm-->
+    <aura:attribute name="vName" type="String" />
+    <aura:attribute name="vAAdress" type="String" />
+    <aura:attribute name="vAccountNuber" type="String" />
+    <aura:attribute name="vPGI" type="Decimal" />
+    <aura:attribute name="vOCC" type="Double" />
+    <aura:attribute name="vNOI" type="Decimal" />
+    <aura:attribute name="vFixedExp" type="Decimal" />
+    <aura:attribute name="vVariable" type="Decimal" />
+    <aura:attribute name="vEGI" type="Decimal" />
+    <aura:attribute name="vCAPRate" type="Double" />
+    <aura:attribute name="vValue" type="Decimal" />
+    <aura:attribute name="vNotes" type="String" />
+    
+    <Lightning:layout verticalAlign="start" multipleRows="true">
+        <Lightning:layoutItem flexibility="auto" padding="around-small">
+            <Lightning:recordEditForm 
+                aura:id="recordEditForm" 
+                objectApiName="Income_Approach_JobS__c"
+                onsuccess="{!c.handleSuccess}"
+                onsubmit="{!c.handleSubmit}"
+                onload="{!c.handleOnLoad}">
+            
+                <Lightning:messages />
+                <Lightning:inputField aura:id="vName" fieldName="Name" value="{!v.vName}" />
+                <Lightning:inputField aura:id="vAAdress" fieldName="Address__c"  value="{!v.vAAdress}" />
+                <Lightning:inputField aura:id="vAccountNuber" fieldName="Account_Number__c"  value="{!v.vAccountNuber}" />
+                <Lightning:inputField aura:id="vPGI" fieldName="PGI__c"  value="{!v.vPGI}" />
+                <Lightning:inputField aura:id="vOCC" fieldName="Occupancy__c"  value="{!v.vOCC}" />
+                <Lightning:inputField aura:id="vNOI" fieldName="NOI__c" value="{!v.vNOI}"  />
+                <Lightning:inputField aura:id="vFixedExp" fieldName="Fixed_Expenses__c"  value="{!v.vFixedExp}"  />
+                <Lightning:inputField aura:id="vVariable" fieldName="Variable_Expenses__c"  value="{!v.vVariable}"  />
+                <Lightning:inputField aura:id="vEGI" fieldName="EGI__c"  value="{!v.vEGI}" />
+                <Lightning:inputField aura:id="vCAPRate" fieldName="Cap_Rate__c"  value="{!v.vCAPRate}" />
+                <Lightning:inputField aura:id="vValue" fieldName="Value__c"  value="{!v.vValue}"  />
+                <Lightning:inputField aura:id="vNotes" fieldName="Notes__c"  value="{!v.vNotes}" />
+
+
+                <lightning:buttonGroup>
+                    <lightning:button label="Calculate" iconName="utility:edit" iconPosition="left"  variant="success" onclick="{!c.calculate}"/>
+                    <lightning:button variant="brand" type="submit" label="Submit" title="Submit"/>
+                    <lightning:button label="Clear" iconName="utility:delete" iconPosition="left"  variant="destructive" onclick="{!c.clearForm}"/>
+                </lightning:buttonGroup>
+
+            </Lightning:recordEditForm>
+        </Lightning:layoutItem>
+    </Lightning:layout>
+</aura:component>	
