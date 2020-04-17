@@ -25,31 +25,27 @@
                 object-api-name="Income_Approach_JobS__c"
                 id="createIncomeApproachForm"
                 onsuccess={handleSuccess}>
-
                 <p>Name: {vName}</p>
                 <p>Address: {vAAdress}</p>
                 <p>Account Number: {vAccountNuber}</p>
-
                 <lightning-input field-name='Name' label="Name" value={vName} onchange={nameHandler}></lightning-input>
                 <lightning-input field-name='Address__c' label="Address" value={vAAdress} onchange={addressHandler}></lightning-input>
                 <lightning-input field-name='Account_Number__c' label="Account Number" value={vAccountNuber} onchange={accntNumberHandler}></lightning-input>
-                <lightning-input field-name='PGI__c' label="PGI" onchange={PGIHandler}></lightning-input>
-                <lightning-input field-name='Occupancy__c' label="Occupancy" onchange={OCCHandler}></lightning-input>
-                <lightning-input field-name='NOI__c' label="NOI" onchange={NOIHandler}></lightning-input>
-                <lightning-input field-name='Fixed_Expenses__c' label="Fixed Expenses" onchange={fixedExpHandler}></lightning-input>
-                <lightning-input field-name='Variable_Expenses__c' label="Variable Expenses" onchange={variableExpHandler}></lightning-input>
-                <lightning-input field-name='EGI__c' label="EGI" onchange={EGIHandler}></lightning-input>
-                <lightning-input field-name='Cap_Rate__c' label="Cap Rate" onchange={capRateHandler}></lightning-input>
-                <lightning-input field-name='Value__c' label="Value" onchange={ttlValHandler}></lightning-input>
-                <lightning-input field-name='Notes__c' label="Notes" onchange={notesHandler}></lightning-input>
-
+                <lightning-input field-name='PGI__c' label="PGI" value={vPGI} onchange={PGIHandler}></lightning-input>
+                <lightning-input field-name='Occupancy__c' label="Occupancy" value={vOCC} onchange={OCCHandler}></lightning-input>
+                <lightning-input field-name='NOI__c' label="NOI" value={vNOI}  onchange={NOIHandler}></lightning-input>
+                <lightning-input field-name='Fixed_Expenses__c' label="Fixed Expenses" value={vFixedExp} onchange={fixedExpHandler}></lightning-input>
+                <lightning-input field-name='Variable_Expenses__c' label="Variable Expenses" value={vVariable} onchange={variableExpHandler}></lightning-input>
+                <lightning-input field-name='EGI__c' label="EGI" value={vEGI} onchange={EGIHandler}></lightning-input>
+                <lightning-input field-name='Cap_Rate__c' label="Cap Rate" value={vCAPRate} onchange={capRateHandler}></lightning-input>
+                <lightning-input field-name='Value__c' label="Value" value={vValue} onchange={ttlValHandler}></lightning-input>
+                <lightning-input field-name='Notes__c' label="Notes" value={vNotes}  onchange={notesHandler}></lightning-input>
             </lightning-record-edit-form>
-
             </div>
             <div class="slds-button-group" role="group">
                 <!--<lightning-button variant="brand" type="submit" name="Submit" label="Submit" disabled=""></lightning-button>-->
                 <lightning-button variant="brand" type="submit" name="Submit" label="Submit"></lightning-button>
-                <button class="slds-button slds-button_neutral">Calculate</button>
+                <button class="slds-button slds-button_neutral" onclick={calc}>Calculate</button>
                 <button class="slds-button slds-button_text-destructive" onclick={clearForm}>Clear</button>
             </div>
         </div>

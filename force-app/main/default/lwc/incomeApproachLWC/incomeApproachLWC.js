@@ -17,6 +17,8 @@ export default class IncomeApproachLWC extends LightningElement {
     @track vCAPRate = '';
     @track vValue = '';
     @track vNotes = '';
+    
+   
 
 
     nameHandler(event)
@@ -68,34 +70,7 @@ export default class IncomeApproachLWC extends LightningElement {
         this.vNotes = event.target.value; 
     }
 
-    handleChange(event) {
-        const field = event.target.name;
-        if (field === 'Name') {
-            this.vName = event.target.value;
-        } else if (field === 'Address__c') {
-            this.vAAdress = event.target.value;
-        }else if (field === 'Account_Number__c') {
-            this.vAccountNuber = event.target.value;
-        }else if (field === 'PGI__c') {
-            this.vPGI = event.target.value;
-        }else if (field === 'Occupancy__c') {
-            this.vOCC = event.target.value;
-        }else if (field === 'NOI__c') {
-            this.vNOI = event.target.value;
-        }else if (field === 'Fixed_Expenses__c') {
-            this.vFixedExp = event.target.value;
-        }else if (field === 'Variable_Expenses__c') {
-            this.vVariable = event.target.value;
-        }else if (field === 'EGI') {
-            this.vEGI = event.target.value;
-        }else if (field === 'Cap_Rate__c') {
-            this.vCAPRate = event.target.value;
-        }else if (field === 'Value__c') {
-            this.vValue = event.target.value;
-        }else if (field === 'Notes__c') {
-            this.vNotes = event.target.value;
-        }
-    }
+   
 
     handleSuccess(event) {
         this.dispatchEvent(
@@ -107,11 +82,33 @@ export default class IncomeApproachLWC extends LightningElement {
         );
     }
 
-    clearForm() {
-        const event = new CustomEvent('clearForm', {
-           
-        });
-        this.dispatchEvent(event);
+    clearForm(event) {
+       this.vName = '';
+       this.vPGI = '';
+       this.vAAdress = '';
+       this.vAccountNuber = '';
+       this.vPGI = '';
+       this.vOCC = '';
+       this.vNOI = '';
+       this.vFixedExp = '';
+       this.vVariable = '';
+       this.vEGI = '';
+       this.vCAPRate = '';
+       this.vValue = '';
+       this.vNotes = '';
+    }
+
+    calc(event)
+    {
+        var totalExpenses;
+        console.log("Something is happening");
+        
+        this.vNOI = (this.vPGI * this.vOCC);
+        console.log("NOI: " + this.vNOI);
+        this.totalExpenses = parseFloat (this.vFixedExp) + parseFloat(this.vVariable);
+        console.log("Total Expenses: " + this.totalExpenses);
+        this.vEGI = parseFloat(this.vNOI) - this.totalExpenses;
+        this.vValue = this.vEGI / parseFloat(this.vCAPRate);
     }
 
 }
